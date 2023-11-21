@@ -6,9 +6,11 @@ const withLifecycleLogging = (WrappedComponent) => {
     componentDidMount() {
       console.log(`Component ${WrappedComponent.name} did mount`);
     }
+
     componentWillUnmount() {
       console.log(`Component ${WrappedComponent.name} will unmount`);
     }
+
     render() {
       return <WrappedComponent {...this.props} />;
     }
@@ -16,27 +18,20 @@ const withLifecycleLogging = (WrappedComponent) => {
 };
 
 // Example Component
-class MyComponent1 extends Component {
+class MyComponent extends Component {
   render() {
-    return <div>MyComponent2 rendered!</div>;
-  }
-}
-
-// Example Component
-class MyComponent2 extends Component {
-  render() {
-    return <div>MyComponent2 rendered!</div>;
+    return <div>MyComponent rendered!</div>;
   }
 }
 
 // Apply the HOC to the component
-const MyComponent1WithLogging = withLifecycleLogging(MyComponent1);
+const MyComponentWithLogging = withLifecycleLogging(MyComponent);
 
 // Usage of the enhanced component
 const App = () => {
   return (
     <div>
-      <MyComponent1WithLogging />
+      <MyComponentWithLogging />
     </div>
   );
 };

@@ -1,19 +1,12 @@
-import { func } from "prop-types";
 import React, { useState, useEffect } from "react";
 
-function intialCount() {
-  //.....
-  return 100;
-}
-
 function DynamicInitialCount({ initialCount }) {
-  //const [count, setCount] = useState(() => initialCount + 10);
-  const [count, setCount] = useState(intialCount);
+  const [count, setCount] = useState(() => initialCount);
 
-  //   useEffect(() => {
-  //     // Effect that runs when initialCount changes
-  //     setCount(initialCount);
-  //   }, [initialCount]);
+  useEffect(() => {
+    // Effect that runs when initialCount changes
+    setCount(initialCount);
+  }, [initialCount]);
 
   return (
     <div>
@@ -21,5 +14,3 @@ function DynamicInitialCount({ initialCount }) {
     </div>
   );
 }
-
-export default DynamicInitialCount;

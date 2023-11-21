@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 // Render Props Component
-
 class RenderPropsComponent extends Component {
-  // state management logic
   state = {
     count: 0,
   };
@@ -11,6 +9,7 @@ class RenderPropsComponent extends Component {
   incrementCount = () => {
     this.setState((prevState) => ({ count: prevState.count + 1 }));
   };
+
   render() {
     return this.props.render(this.state.count, this.incrementCount);
   }

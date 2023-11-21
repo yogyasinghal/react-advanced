@@ -7,11 +7,9 @@ function Form() {
   });
 
   const handleInputChange = (e) => {
-    let fieldName = e.target.name;
-    let fieldValue = e.target.value;
     setFormData({
       ...formData,
-      [fieldName]: fieldValue,
+      [e.target.name]: e.target.value,
     });
   };
 
