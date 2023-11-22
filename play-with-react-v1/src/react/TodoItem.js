@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
-import { TodoAppProvider } from "./TodoApp";
 
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/actions/todos";
 export const TodoItem = ({ todo }) => {
-  const { deleteTodo } = useContext(TodoAppProvider);
+  const dispatch = useDispatch();
+
   return (
     <>
       <li className="d-flex justify-content-around">
         <input type="checkbox" checked={todo.completed} />
         <div>{todo.title}</div>
         <button
-          onClick={(e) => deleteTodo(todo.id)}
+          onClick={(e) => dispatch(actions.deleteTodo(todo.id))}
           className="btn btn-sm btn-danger"
         >
           delete

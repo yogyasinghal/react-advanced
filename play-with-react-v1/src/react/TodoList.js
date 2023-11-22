@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { TodoAppProvider } from "./TodoApp";
 import { TodoItem } from "./TodoItem";
 
+import { useSelector } from "react-redux";
+
 export const TodoList = ({}) => {
-  const { todos = [] } = useContext(TodoAppProvider);
+  const todos = useSelector((state) => state.todos);
   return (
     <div className="card card-body mt-3">
       <ul className="list-group">

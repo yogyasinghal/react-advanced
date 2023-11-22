@@ -1,12 +1,14 @@
 import React, { useCallback, useContext } from "react";
-import { TodoAppProvider } from "./TodoApp";
+
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/actions/todos";
 
 export const TodoInput = () => {
-  const { addTodo } = useContext(TodoAppProvider);
+  const dispatch = useDispatch();
   const handleKeyup = useCallback((e) => {
     if (e.which !== 13) return;
     let title = e.target.value;
-    addTodo(title);
+    dispatch(actions.addNewTodo(title));
     e.target.value = "";
   });
   return (
