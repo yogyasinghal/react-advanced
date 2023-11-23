@@ -1,0 +1,38 @@
+
+step-1: Know the UI-application's state
+        e.g e-commerce
+                - products
+                - comments
+                - cart
+                - ....
+        e.g todos-app
+                - todos
+step-2: indefify actions which cause state change
+        
+        e.g e-commerce
+            - LOAD_PRODUCTS
+            - LOAD_COMMENTS
+            - ADD_NEW_COMMENT
+            - ADD_TODO_CART
+          e.g todos-app
+                - ADD_NEW_TODO
+                - LOAD_TODOS_SUCCESS
+                - LOAD_TODOS_FAILED
+step-3: define reducer-function to process slice of state
+step-4: compose multiple reducer(s) as one root-reducer
+step-5: create store with root-reducer
+
+------------------------------------------------------------------------
+
+connect redux with react-components
+
+    1. legacy solution: 
+    - using HOF 
+        - connect
+        
+    2. modern solution`
+    using redux
+
+        - useSelector ==> yo read state from redux's store
+        - useDispatch ==> dispatch action to store
+
