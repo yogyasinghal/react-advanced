@@ -1,0 +1,29 @@
+
+
+
+How to automate testing?
+
+    On Test Environment
+
+     => Arrange
+     => Act
+     => Assert
+
+--------------------------------
+
+testing framework + test-runners
+
+    1. jasmine + karma
+    2. jest 
+    3. mocha
+    4. ava
+    ....
+
+--------------------------------------    
+
+==> jest +  enzyme
+==> jest + react testing lib
+
+--------------------------------------    
+
+  
