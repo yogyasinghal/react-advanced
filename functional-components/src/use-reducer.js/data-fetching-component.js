@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  switch (action.type) {
+  switch (action.mytype) {
     case "FETCH_START":
       return { ...state, loading: true };
     case "FETCH_SUCCESS":
@@ -22,8 +22,8 @@ const reducer = (state, action) => {
 function fetchDataFromAPI() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      //resolve(["item-1", "item-2"]);
-      reject(new Error("oops"));
+      resolve(["item-1", "item-2"]);
+      // reject(new Error("oops"));
     }, 3000);
   });
 }
@@ -32,12 +32,12 @@ function DataFetchingComponent() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchData = async () => {
-    dispatch({ type: "FETCH_START" });
+    dispatch({ mytype: "FETCH_START" });
     try {
       const result = await fetchDataFromAPI();
-      dispatch({ type: "FETCH_SUCCESS", payload: result });
+      dispatch({ mytype: "FETCH_SUCCESS", payload: result });
     } catch (error) {
-      dispatch({ type: "FETCH_ERROR", payload: error.message });
+      dispatch({ mytype: "FETCH_ERROR", payload: error.message });
     }
   };
 
